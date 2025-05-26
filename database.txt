@@ -1,6 +1,7 @@
 {
   "item": [
     "iphone",
-    "samsung"
+    "samsung",
+    "huwaei"
   ]
 }
