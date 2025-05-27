@@ -3,7 +3,7 @@ from flask_cors import CORS
 from routes.api_routes import api  # Importas el Blueprint
 
 app = Flask(__name__)
-CORS(app)
+CORS(app, origins="http://localhost:5173")
 
 app.register_blueprint(api)  # Registras las rutas
 

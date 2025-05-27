@@ -6,26 +6,23 @@ class FileRepository:
     def __init__(self, file_path: str = "database.txt"):
         self.file_path = file_path
 
-    def save_data(self, data):
-        existing_data = {"item": []}
+    def save_data(self, single_entry: Dict):
+        print(f"DATA: {single_entry}")
+        existing_data = {"data": []}
 
-        # Leer si el archivo existe
+        # Leer el archivo si existe
         if os.path.exists(self.file_path):
-            # Intentar cargar el contenido existente
-            with open(self.file_path, "r") as file:
-                try:
+            try:
+                with open(self.file_path, "r") as file:
                     existing_data = json.load(file)
-                except json.JSONDecodeError:
-                    pass  # si el archivo está vacío o mal formado
+            except json.JSONDecodeError:
+                pass  # archivo vacío o mal formado
 
-        # Agregar nuevo item
-        new_item = data.get("item")
-        if new_item:
-            if new_item not in existing_data["item"]:
-                existing_data["item"].append(new_item)
+        existing_data["data"].append(single_entry)
 
-        # Escribir nuevamente todo el contenido
+        # Guardar el archivo actualizado
         with open(self.file_path, "w") as file:
+            print(f"Guardando {len(existing_data['data'])} entradas en {self.file_path}")
             json.dump(existing_data, file, indent=2)
 
     def read_all(self) -> List[Dict]:

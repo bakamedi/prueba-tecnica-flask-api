@@ -1,7 +1,14 @@
 {
-  "item": [
-    "iphone",
-    "samsung",
-    "huwaei"
+  "data": [
+    {
+      "name": "bakke",
+      "email": "bakke@gmail.com",
+      "selectedOption": "Agent"
+    },
+    {
+      "name": "bakke",
+      "email": "bakke@gmail.com",
+      "selectedOption": "Agent"
+    }
   ]
 }

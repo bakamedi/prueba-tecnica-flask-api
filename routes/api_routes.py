@@ -13,7 +13,7 @@ def get_options():
 @api.route("/save", methods=["POST"])
 def save():
     data = request.json
-    print("Guardando...", data)
+    print("Received data:", data)
     repository.save_data(data)
     return jsonify({"status": 200})
 
